@@ -14,7 +14,7 @@ env_path_name="${env_path_name_prefix}${index}"
 function export_path_rc() {
   echo -n '
 '$env_path_name'="'$path_home'"
-[ -z "$(echo $PATH | grep "$'$env_path_name'/bin")" ]; && \
+[ -z "$(echo $PATH | grep "$'$env_path_name'/bin")" ] &&
   export PATH="$'$env_path_name'/bin:$PATH"
 '
 }
@@ -22,9 +22,9 @@ function export_path_rc() {
 function export_path_rc_source() {
   echo -n '
 '$env_path_name'="'$path_home'"
-[ -z "$(echo $PATH | grep "$'$env_path_name'/bin")" ] && \
+[ -z "$(echo $PATH | grep "$'$env_path_name'/bin")" ] &&
   export PATH="$'$env_path_name'/bin:$PATH"
-[ -n "$(echo $PATH | grep "$'$env_path_name'/bin")" ] && \
+[ -n "$(echo $PATH | grep "$'$env_path_name'/bin")" ] &&
   source $'$env_path_name'/autocompletions/setup-autocomplite.sh $'$env_path_name'/bin
 '
 }
